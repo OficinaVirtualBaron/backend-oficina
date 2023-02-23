@@ -1,0 +1,33 @@
+{
+	"categoryId": 17,
+	"statusId": 13,
+	"questions": [
+		{
+			"question": 15,
+			"options": [
+				{
+					"questionOption": 14,
+					"answer": "10000"
+				}
+			]
+		},
+		{
+			"question": 16,
+			"options": [
+				{
+					"questionOption": 15,
+					"answer": "https://raw.githubusercontent.com/OficinaVirtualBaron/oficina-virtual/main/examples/imgprueba.webp?token=GHSAT0AAAAAAB4D5WZN34OUODIUVYPMXJ54Y6JWVFA"
+				}
+			]
+		},
+		{
+			"question": 13,
+			"options": [
+				{
+					"questionOption": 16,
+					"answer": 2
+				}
+			]
+		}
+	]
+}
