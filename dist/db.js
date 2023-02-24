@@ -29,7 +29,7 @@ exports.AppDataSource = new typeorm_1.DataSource({
     host: exports.DB_HOST,
     username: exports.DB_USER,
     password: exports.MYSQL_PASSW,
-    port: exports.PORT,
+    port: Number(exports.PORT),
     database: exports.DB_NAME,
     entities: [
         User_1.User,

@@ -48,9 +48,8 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "role", void 0);
 __decorate([
-    (0, typeorm_1.Column)(),
+    (0, typeorm_1.Column)({ nullable: true }),
     (0, class_validator_1.IsOptional)(),
-    (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
 ], User.prototype, "resetToken", void 0);
 __decorate([

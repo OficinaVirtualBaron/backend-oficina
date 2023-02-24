@@ -65,7 +65,7 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         user.adress = adress;
         yield repository_1.userRepository.save(user);
         res.status(201).send({ message: "Usuario creado correctamente. Inicie sesión a continuación" });
-        (0, signUpEmail_1.signUpUserConfirmationEmail)(user, mailer_1.transporter);
+        yield (0, signUpEmail_1.signUpUserConfirmationEmail)(user, mailer_1.transporter);
     }
     catch (error) {
         if (error instanceof Error) {

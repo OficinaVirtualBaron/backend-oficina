@@ -23,7 +23,7 @@ const isMuniRole = (req, res, next) => {
         }
     }
     catch (error) {
-        res.status(401).json("Token no válido. Acceso denegado");
+        res.status(401).json("Token no válido. Acceso denegado. Contacte con el administrador");
     }
 };
 exports.isMuniRole = isMuniRole;

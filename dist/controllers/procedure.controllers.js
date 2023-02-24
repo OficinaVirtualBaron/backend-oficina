@@ -92,7 +92,7 @@ const submitProcedure = (req, res) => __awaiter(void 0, void 0, void 0, function
                 }));
             }));
             (0, sendConfirmationEmail_1.sendConfirmationEmail)(procedure, user, mailer_1.transporter);
-            return res.status(201).send("Trámite enviado correctamente. ¡Gracias vecino!");
+            return res.status(201).json({ message: "Trámite enviado correctamente. ¡Gracias vecino!" });
         }
         catch (error) {
             if (error instanceof Error) {
