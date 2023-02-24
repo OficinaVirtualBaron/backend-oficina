@@ -18,6 +18,6 @@ export const isMuniRole = (req: Request, res: Response, next: NextFunction) => {
             res.status(401).send({ message: "No posee un rol autorizado. Acceso denegado" });
         }
     } catch (error) {
-        res.status(401).json("Token no válido. Acceso denegado")
+        res.status(401).json("Token no válido. Acceso denegado. Contacte con el administrador")
     }
 }

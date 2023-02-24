@@ -19,11 +19,12 @@ import {
 import { isMuniRole } from "../middlewares/validateMuni";
 import { isAdminRole } from "../middlewares/validateAdmin";
 import { isUserOrMuni } from "../middlewares/validateMuniAndUser";
+import { isUserRole } from "../middlewares/validateUser";
 const router = Router();
 
 // POST
 router.post("/procedure", isAdminRole, createProcedure);
-router.post("/submit-procedure", submitProcedure);
+router.post("/submit-procedure", isUserRole, submitProcedure);
 
 // GET
 router.get("/history/user", getMyProcedures);

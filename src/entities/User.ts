@@ -45,9 +45,8 @@ export class User {
     @Column({ default: "USER_ROLE" })
     role: string;
 
-    @Column()
+    @Column({ nullable: true })
     @IsOptional()
-    @IsNotEmpty()
     resetToken: string;
 
     @CreateDateColumn()

@@ -29,7 +29,7 @@ export const createUser = async (req: Request, res: Response) => {
         user.adress = adress;
         await userRepository.save(user);
         res.status(201).send({ message: "Usuario creado correctamente. Inicie sesión a continuación" });
-        signUpUserConfirmationEmail(user, transporter);
+        await signUpUserConfirmationEmail(user, transporter);
     } catch (error) {
         if (error instanceof Error) {
             return res.status(500).json({ message: error.message });

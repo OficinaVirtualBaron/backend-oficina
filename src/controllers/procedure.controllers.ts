@@ -75,7 +75,7 @@ export const submitProcedure = async (req: Request, res: Response) => {
                 });
             });
             sendConfirmationEmail(procedure, user, transporter);
-            return res.status(201).send("Trámite enviado correctamente. ¡Gracias vecino!");
+            return res.status(201).json({ message: "Trámite enviado correctamente. ¡Gracias vecino!" });
         } catch (error) {
             if (error instanceof Error) {
                 return res.status(500).send({ message: error.message })
