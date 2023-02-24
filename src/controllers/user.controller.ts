@@ -267,7 +267,20 @@ export const signIn = async (req: Request, res: Response) => {
     try {
         const { password } = req.body;
         const salt = bcrypt.genSaltSync();
-        const user = await userRepository.findOne({ where: { cuil: req.body.cuil } })
+        const user = await userRepository.findOne({
+            where: {
+                cuil: req.body.cuil
+            },
+            select: {
+                id: true,
+                firstname: true,
+                password: true,
+                lastname: true,
+                role: true,
+                email: true,
+                cuil: true
+            }
+        });
         if (!user) {
             return res.status(404).json("El usuario es incorrecto. Intente nuevamente");
         }
@@ -275,8 +288,10 @@ export const signIn = async (req: Request, res: Response) => {
         if (!validatePassword) {
             return res.status(400).json("Contraseña incorrecta. Intente nuevamente")
         }
+        const userId = user.id;
+        const userRole = user.role;
         const token = await tokenSignUser(user);
-        return res.status(200).json({ user, token });
+        return res.status(200).json({ userId, userRole, token });
     } catch (error) {
         if (error instanceof Error) {
             return res.status(500).json({ message: error.message });

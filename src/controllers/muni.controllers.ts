@@ -141,6 +141,9 @@ export const signInMuni = async (req: Request, res: Response) => {
                 category: true
             },
             select: {
+                role: true,
+                id: true,
+                password: true,
                 category: {
                     id: true,
                     title: true
@@ -154,8 +157,10 @@ export const signInMuni = async (req: Request, res: Response) => {
         if (!validatePassword) {
             return res.status(400).json("Contraseña incorrecta. Intente nuevamente");
         }
+        const userMuniId = userMuni.id;
+        const userMuniRole = userMuni.role;
         const token = await tokenSignMuni(userMuni);
-        return res.status(200).json({ userMuni, token });
+        return res.status(200).json({ userMuniId, userMuniRole, token });
     } catch (error) {
         if (error instanceof Error) {
             return res.status(500).json({ message: error.message });

@@ -24,7 +24,7 @@ export const AppDataSource = new DataSource({
     host: DB_HOST,
     username: DB_USER,
     password: MYSQL_PASSW,
-    port: Number(PORT),
+    port: 3306,
     database: DB_NAME,
     entities: [
         User,
